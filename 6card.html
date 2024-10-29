@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .a1 {
+            /* background-color: rgb(255, 255, 255); */
+            text-align: center;
+            background-image: url('./images/214.png');
+        }
+        .b1{
+            padding: auto auto auto auto;
+            background-color: chartreuse;
+        }
+
+        .card {
+            display: inline-grid;
+            color: white;
+            transition: transform 0.3s;
+            transform: perspective(800px) rotateY(0deg) scale(100%);
+            transform-style: preserve-3d;
+            margin: 30px 30px 30px 30px;
+
+        }
+
+        .card:hover {
+            transform: scale(120%);
+        }
+
+        .card:active {
+            transform: perspective(800px) rotateY(180deg) scale(120%);
+        }
+
+        .card>* {
+            grid-area: 1 / 1 / 1 / 1;
+            width: 310px;
+            height: 425px;
+            /* padding: 12px; */
+            border-radius: 8px;
+            backface-visibility: hidden;
+            margin: 30px 30px 30px 30px;
+        }
+
+        .card-front {
+            background: linear-gradient(rgb(94, 155, 224), rgb(64, 37, 219));
+        }
+
+        .card-back {
+            background: linear-gradient(rgb(252, 84, 215), rgb(148, 164, 216));
+            transform: rotateY(180deg);
+        }
+        .f{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="a1">
+    <div class="f">
+        <br><br><br><br><br><br><br><br>
+        <div class="card">
+            <div class="card-front">
+                <img src="./images/pc2.png">
+            </div>
+            <div class="card-back">
+                <img src="./images/pc1.png">
+            </div>
+        </div>
+        <div class="card">  
+            <div class="card-front">
+                <img src="./images/pc2.png">
+            </div>
+            <div class="card-back">
+                <img src="./images/pc3.png">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-front">
+                <img src="./images/pc2.png">
+            </div>
+            <div class="card-back">
+                <img src="./images/pc4.png">
+            </div>
+        </div>
+    </div>
+    <body class="a1">
+        <div class="f">
+            <br><br><br><br><br><br><br><br>
+            <div class="card">
+                <div class="card-front">
+                    <img src="./images/pc2.png">
+                </div>
+                <div class="card-back">
+                    <img src="./images/pc5.png">
+                </div>
+            </div>
+            <div class="card">  
+                <div class="card-front">
+                    <img src="./images/pc2.png">
+                </div>
+                <div class="card-back">
+                    <img src="./images/pc6.png">
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-front">
+                    <img src="./images/pc2.png">
+                </div>
+                <div class="card-back">
+                    <img src="./images/pc7.png">
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
