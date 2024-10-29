@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .a1 {
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+        }
+        .b1{
+            padding: auto auto auto auto;
+            background-color: chartreuse;
+        }
+
+        .card {
+            display: inline-grid;
+            color: white;
+            transition: transform 0.3s;
+            transform: perspective(800px) rotateY(0deg) scale(100%);
+            transform-style: preserve-3d;
+
+        }
+
+        .card:hover {
+            transform: scale(120%);
+        }
+
+        .card:active {
+            transform: perspective(800px) rotateY(180deg) scale(120%);
+        }
+
+        .card>* {
+            grid-area: 1 / 1 / 1 / 1;
+            width: 275px;
+            height: 425px;
+            padding: 12px;
+            border-radius: 8px;
+            backface-visibility: hidden;
+            margin: 30px auto 0px auto;
+        }
+
+        .card-front {
+            background: linear-gradient(rgb(94, 155, 224), rgb(64, 37, 219));
+        }
+
+        .card-back {
+            background: linear-gradient(rgb(252, 84, 215), rgb(148, 164, 216));
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body class="a1">
+    <!-- <div class="a1"> -->
+        <br><br>
+        <div class="card">
+            <div class="card-front">카드 전면</div>
+            <div class="card-back">카드 후면</div>
+        </div>
+    <!-- </div> -->
+</body>
+
+</html>
