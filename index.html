@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+        * {
+            font-family: "Do Hyeon", sans-serif;
+        }
+
+        .mt1 {
+            height: 250px;
+            background-color: green;
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            background-image: url('https://images.unsplash.com/photo-1511992243105-2992b3fd0410?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .mt1>button {
+            width: 150px;
+            height: 50px;
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+
+            margin-top: 20;
+        }
+
+        .mt2 {
+            width: 1200px;
+
+            margin: 30px auto 0px auto;
+        }
+
+        .mt3 {
+            width: 500px;
+            margin: 30px auto 0px auto;
+            padding: 20px;
+            box-shadow: 0px 0px 3px 0px grey;
+            border-radius: 5px;
+
+
+        }
+
+        .mt4 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mt4>button {
+            margin-right: 5px;
+        }
+    </style>
+    <script type="module">
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyD7LGQPlBpRNbdE3jjApnGUsRheEkFZmbQ",
+            authDomain: "testing-407f7.firebaseapp.com",
+            projectId: "testing-407f7",
+            storageBucket: "testing-407f7.appspot.com",
+            messagingSenderId: "177460025148",
+            appId: "1:177460025148:web:622d9cdc91145c8b48f039",
+            measurementId: "G-X0ZG6RJ26F"
+        };
+
+
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        $("#psbt").click(async function () {
+            let img = $('#aimg').val();
+            let na = $('#ana').val();
+            let thi = $('#athi').val();
+            let dt = $('#adt').val();
+
+            let doc = {
+                'aimg': img,
+                'ana': na,
+                'athi': thi,
+                'adt': dt
+            };
+            await addDoc(collection(db, "albs"), doc);
+            alert('save success');
+            window.location.reload();
+        })
+        $("#svt").click(async function () {
+            $('#pb').toggle()
+        })
+        let docs = await getDocs(collection(db, "albs"));
+        docs.forEach((doc) => {
+            let row = doc.data();
+            console.log(row);
+
+            let img = row['aimg'];
+            let na = row['ana'];
+            let thi = row['athi'];
+            let dt = row['adt'];
+
+            let temp = `
+            <div class="col">
+                <div class="card h-100">
+                    <img src="${img}"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${na}</h5>
+                        <p class="card-text">${thi}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">${dt}</small>
+                    </div>
+                </div>
+            </div>`;
+            $('#ccs').append(temp);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="mt1">
+        <h1>어쩌구 앨범</h1>
+        <button id="svt">click to save</button>
+    </div>
+    <div class="mt3" id="pb">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="aimg" placeholder="앨범 img">
+            <label for="floatingInput">앨범 img</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="ana" placeholder="앨범 name">
+            <label for="floatingInput">앨범 name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="athi" placeholder="앨범 things">
+            <label for="floatingInput">앨범 things</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="adt" placeholder="앨범 date">
+            <label for="floatingInput">앨범 date</label>
+        </div>
+        <div class="mt4">
+            <button type="button" class="btn btn-dark" id="psbt">rcd</button>
+            <button type="button" class="btn btn-outline-dark">cls</button>
+        </div>
+    </div>
+    <div class="mt2">
+        <div id="ccs" class="row row-cols-1 row-cols-md-4 g-4">
+            <!-- <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">라때는말이야1</h5>
+                        <p class="card-text">그땐 그랬지</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">2024-10-28</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">라때는말이야1</h5>
+                        <p class="card-text">그땐 그랬지</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">2024-10-28</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">라때는말이야1</h5>
+                        <p class="card-text">그땐 그랬지</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">2024-10-28</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">라때는말이야1</h5>
+                        <p class="card-text">그땐 그랬지</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">2024-10-28</small>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</body>
+
+</html>
