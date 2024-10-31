@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="icon" href="https://raw.githubusercontent.com/jaeeun0238/V/56f46d64a199b0ae3d29fc1b47950f46b2f854de/favicon.ico"/>
+        <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/jaeeun0238/V/56f46d64a199b0ae3d29fc1b47950f46b2f854de/favicon.ico"/>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+    * {
+        font-family: "Gowun Dodum", sans-serif;
+    }
+
+    .header1{
+       background-color: white; 
+    }
+    
+    .myteamContainer {
+        background-color: beige;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+    }
+
+    .myteam {
+        color: black;
+        margin: 250px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        border-radius: 20px;
+        font-size: 25px;
+
+        background-color: transparent;
+    }
+
+    .icon {
+        height: 50px;
+    }
+    
+    .main {
+
+        color: black;
+
+        background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FWh37Q%2FbtsKqB8bSAu%2FUPXn0Vc13R4TM1D1HNmLRK%2Fimg.png');
+        background-position: center;
+        background-size: cover;
+
+        /* position: absolute; */
+        /* 절대 위치 */
+        /* top: 100px; */
+        /* 상단에서 약간 띄움 */
+        /* left: 100px; */
+        /* 왼쪽에서 약간 띄움 */
+        width: 200px;
+        /* 원하는 크기로 설정 */
+        height: 200px;
+        /* 원하는 크기로 설정 */
+        margin: 0px auto 0px auto;
+    }
+
+    .mytext {
+        margin: left;
+    }
+
+
+
+    .mycards {
+        width: 1200px;
+        margin: 20px auto 20px auto
+    }
+
+    body {
+        background-color: beige;
+    }
+
+    .card {
+        width: 300px;
+        height: 400px;
+        display: inline-grid;
+        color: white;
+        transition: transform 0.3s;
+        transform: perspective(800px) rotateY(0deg) scale(100%);
+        transform-style: preserve-3d;
+        margin: 30px 30px 30px 30px;
+
+
+    }
+
+    .card:hover {
+        transform: scale(120%);
+    }
+
+    .card:active {
+        transform: perspective(800px) rotateY(180deg) scale(120%);
+    }
+
+    .card>* {
+        grid-area: 1 / 1 / 1 / 1;
+        width: 310px;
+        height: 425px;
+        /* padding: 12px; */
+        border-radius: 8px;
+        backface-visibility: hidden;
+        color: black;
+
+    }
+
+    .card-front {
+        display: flex;
+
+    }
+
+    .card-back {
+        transform: rotateY(180deg);
+        text-align: center;
+        padding: 10px;
+
+    }
+
+    .profile {
+        width: 300px;
+        height: 400px;
+        border-radius: 3px;
+    }
+
+    .namediv {
+        width: 240px;
+        margin-left: 21%;
+        float:left;
+    }
+</style>
+<script>
+    function run() {
+        window.open("https://news0516.tistory.com/")
+    }
+    function run2() {
+        window.open("https://ohs020105.tistory.com/")
+    }
+    function run3() {
+        window.open("https://velog.io/@gusgus0341/posts")
+    }
+    function run4() {
+        window.open("https://jaeoun0238.tistory.com/")
+    }
+    function run5() {
+        window.open("https://start-rpg-game3294.blogspot.com/")
+    }
+    function run6() {
+        window.open("https://shinon-rr.tistory.com/")
+    }
+    function run7() {
+        window.open("https://github.com/Rlhaa")
+    }
+    function run8() {
+        window.open("https://github.com/ohhyeseong")
+    }
+    function run9() {
+        window.open("https://github.com/Hyiyek")
+    }
+    function run10() {
+        window.open("https://github.com/jaeeun0238")
+    }
+    function run11() {
+        window.open("https://github.com/heung-geun")
+    }
+    function run12() {
+        window.open("https://github.com/Shinon-RR")
+    }
+</script>
+
+<body>
+    <div class="header1">
+        <header class="p-3 mb-4 border-bottom">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+                    <a href="./header.html" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FkAVk5%2FbtsKpE51fsr%2FFTOcgGxIKe3whI0lGfuj7K%2Fimg.png" class="icon">
+                        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                            <use xlink:href="#bootstrap"></use>
+                        </svg>
+                    </a>
+    
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+    
+    
+                        <li><a href="./header.html" class="nav-link px-2 link-body-emphasis">TEAM</a></li>
+                        <li><a href="./memberpagefinal.html" class="nav-link px-2 link-body-emphasis">MEMBER</a></li>
+                        <li><a href="./guestbook.html" class="nav-link px-2 link-body-emphasis">GUESTBOOK</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="mycards">
+        <div class="row row-cols-1 row-cols-md-3 g-5">
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-front">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcx4XKn%2FbtsKpQrD1UB%2FqcGEvwT59qVkJxLbcY9QIK%2Fimg.png" class="profile">
+                    </div>
+                    <div style="background-color: #999da0;" class="card-back">
+                        <br><br>
+                        <h5 class="card-title">김주호</h5>
+                        <br>
+                        <p class="card-text">INFP</p>
+                        <br>
+                        <p class="card-text">취미: 음악 감상,독서게임</p>
+                        <br>
+                        <p class="card-text"> tomorrow will be yesterday</p>
+                    </div>
+                </div>
+                <div class="namediv">
+                    <row>김주호:</row>
+                    
+                    <button onclick="run6()" class="btn btn-outline-secondary">블로그</button>
+                
+                    <button onclick="run12()" class="btn btn-outline-secondary">깃허브</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-front">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fl7qtH%2FbtsKqpAkgvB%2FAEjGzSrZZ3ECLfxI0lehKK%2Fimg.jpg" class="profile">
+                    </div>
+                    <div style="background-color: #c4c4bc;" class="card-back">
+                        <br><br>
+                        <h5 class="card-title">전현재</h5>
+                        <br>
+                        <p class="card-text">INFP</p>
+                        <br>
+                        <p class="card-text">취미: 애니,유튜브,영화드라마감상</p>
+                        <br>
+                        <p class="card-text">감성발라드와 JPOP을좋아하는 20대남자입니다</p>
+
+                    </div>
+                </div>
+                <div class="namediv">
+                    <row>전현재:</row>
+                    <button onclick="run3()" class="btn btn-outline-secondary">블로그</button> 
+                    <button onclick="run9()" class="btn btn-outline-secondary">깃허브</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-front">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F4XRYA%2FbtsKpmdv8p0%2FMYRkzVRIQxABIdYVfSTWhk%2Fimg.jpg" class="profile">
+                    </div>
+                    <div style="background-color: #f2edcd" class="card-back">
+                        <br>
+                        <br>
+                        <h5 class="card-title">유재은</h5>
+                        <br>
+                        <p class="card-text">INFP</p>
+                        <br>
+                        <p class="card-text">취미: 게임, 맛있는거먹기</p>
+                        <br>
+                        <p class="card-text">게임 좋아하는집순이</p>
+
+                    </div>
+                </div>
+                <div class="namediv">
+                    <row>유재은:</row>
+                    <button onclick="run4()" class="btn btn-outline-secondary">블로그</button>
+                    <button onclick="run10()" class="btn btn-outline-secondary">깃허브</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-front">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbjVKHv%2FbtsKpTIHnHj%2Fk7aUPczHREFTVF9n7ISQrK%2Fimg.jpg" class="profile">
+                    </div>
+                    <div style="background-color: #445737" class="card-back">
+                        <br><br>
+                        <h5 class="card-title">오혜성</h5>
+                        <br>
+                        <p class="card-text">INFP</p>
+                        <br>
+                        <p class="card-text">취미: 운동, 게임, 잠자기 </p>
+                        <br>
+                        <p class="card-text">스파르타 코딩공부에서 열심히 공부해 미래의 멋진 게임개발자로성장하고싶습니다</p>
+
+                    </div>
+                </div>
+                <div class="namediv">
+                    <row>오혜성:</row>
+                    <button onclick="run2()" class="btn btn-outline-secondary">블로그</button>
+                    <button onclick="run8()" class="btn btn-outline-secondary">깃허브</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-front">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FnS46l%2FbtsKplTfx1J%2FKURWZ92kkO7y4P6Y1pDEe0%2Fimg.jpg" class="profile">
+                    </div>
+                    <div style="background-color: #cabeb2;" class="card-back">
+                        <br><br>
+                        <h5 class="card-title">윤형근</h5>
+                        <br>
+                        <p class="card-text">INTP</p>
+                        <br>
+                        <p class="card-text">취미: 배드민턴 치기</p>
+                        <br>
+                        <p class="card-text">5개월 열심히 하고 꽃길만 걸읍시다!!</p>
+                    </div>
+                </div>
+                <div class="namediv">
+                    <row>윤형근:</row>
+                    <button onclick="run5()" class="btn btn-outline-secondary">블로그</button>
+                    <button onclick="run11()" class="btn btn-outline-secondary">깃허브</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-front">
+                        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb0VBKF%2FbtsKqBOelp1%2FQRwqa8bcakkMVoCUPQwMq1%2Fimg.jpg" class="profile">
+                    </div>
+                    <div style="background-color: #92b8fa" class="card-back">
+                        <br><br>
+                        <h5 class="card-title">유대원</h5>
+                        <br>
+                        <p class="card-text">INTP</p>
+                        <br>
+                        <p class="card-text">취미: 운동, 게임, 헬스, 음악듣기</p>
+                        <br>
+                        <p class="card-text"> 열심히 참여해서 게임분야 커리어를 발전시키고싶습니다</p>
+
+                    </div>
+                </div>
+                <div class="namediv">
+                    <row>유대원:</row>
+                    <button onclick="run()" class="btn btn-outline-secondary">블로그</button>
+                    <button onclick="run7()" class="btn btn-outline-secondary">깃허브</button>
+                </div>
+            </div>
+            
+
+
+        </div>
+    </div>
+</body>
+
+</html>
